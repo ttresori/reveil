@@ -53,7 +53,10 @@ case $yn in
 esac
 echo "Copie le lien d'une page [web] ou [path_file]"
 read link
-echo "xdg-open "$link"">/etc/init.d/link_to_start.sh
-echo ""$minutes" "$heure"    * * *   $USER /etc/init.d/link_to_start.sh">>/etc/crontab
+echo "xdg-open "$link"">link_to_start.sh
+touch $crontab$USER
+crontab -l > $crontab$USER
+echo "\n"$minutes" "$heure" * * * $USER /home/ttresoriuser/Documents/reveil/link_to_start.sh">>$contrab$USER
+crontab $contrab$USER
 /etc/init.d/cron restart
 
